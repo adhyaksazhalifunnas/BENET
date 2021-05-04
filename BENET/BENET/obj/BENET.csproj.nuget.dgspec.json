@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\UGM\\Kuliah\\SMT 2\\Praktikum\\PBO\\BENET\\BENET\\BENET\\BENET\\BENET.csproj": {}
+    "C:\\Users\\Akbar\\source\\repos\\BENET_Revisi\\BENET\\BENET\\BENET.csproj": {}
   },
   "projects": {
-    "E:\\UGM\\Kuliah\\SMT 2\\Praktikum\\PBO\\BENET\\BENET\\BENET\\BENET\\BENET.csproj": {
+    "C:\\Users\\Akbar\\source\\repos\\BENET_Revisi\\BENET\\BENET\\BENET.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\UGM\\Kuliah\\SMT 2\\Praktikum\\PBO\\BENET\\BENET\\BENET\\BENET\\BENET.csproj",
+        "projectUniqueName": "C:\\Users\\Akbar\\source\\repos\\BENET_Revisi\\BENET\\BENET\\BENET.csproj",
         "projectName": "BENET",
-        "projectPath": "E:\\UGM\\Kuliah\\SMT 2\\Praktikum\\PBO\\BENET\\BENET\\BENET\\BENET\\BENET.csproj",
-        "packagesPath": "C:\\Users\\abc\\.nuget\\packages\\",
-        "outputPath": "E:\\UGM\\Kuliah\\SMT 2\\Praktikum\\PBO\\BENET\\BENET\\BENET\\BENET\\obj\\",
+        "projectPath": "C:\\Users\\Akbar\\source\\repos\\BENET_Revisi\\BENET\\BENET\\BENET.csproj",
+        "packagesPath": "C:\\Users\\Akbar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Akbar\\source\\repos\\BENET_Revisi\\BENET\\BENET\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\abc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Akbar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -44,6 +44,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.12, )"
@@ -81,12 +85,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[3.1.14, 3.1.14]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -95,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }
