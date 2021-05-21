@@ -4,39 +4,83 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div id="mapholder"></div>
+<h2 id="reply"></h2>
+<h4 id="prediksi"></h4>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.SportName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SportType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SportDrill)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.SportName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SportType)
-            </td>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Index">
+                <div class="form-group">
+                    <input id="recommendation" name="recommendation" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <input value="Lihat Rekomendasi" type="submit" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.SportName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SportType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SportDrill)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SportName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SportType)
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                console.log(position.coords.latitude);
+                $.get("https://api.openweathermap.org/data/2.5/weather?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&lang=id&appid=4644fa98c58f8eb00826d23a7b4b6e2d&units=metric", function (response) {
+                    $("#reply").text("Cuaca di daerah " + response.name + " dengan suhu " + response.main.temp + "C dengan cuaca " + response.weather[0]["description"]);
+                    console.log(response);
+                    if (response.weather[0]["main"] == "rain") {
+                        $("#prediksi").text("Prediksi cuaca hari ini hujan, disarankan memilih olahraga Indoor");
+                        $("#recommendation").val("Indoor");
+                    }
+                    else {
+                        $("#prediksi").text("Prediksi cuaca hari ini tidak hujan, anda dapat melakukan olahraga Outdoor");
+                        $("#recommendation").val("Outdoor");
+                    }
+
+                    //TODO
+                    //Google maps location
+                    var latlon = position.coords.latitude + "," + position.coords.longitude;
+                    var img_url = "https://maps.googleapis.com/maps/api/staticmap?center=" + latlon + "&zoom=14&size=400x300&sensor=false&key=AIzaSyACQg7qCGWJW4hgZSd6upcHm9JRSjXYXS0";
+
+                    //document.getElementById("mapholder").innerHTML = "<img src='" + img_url + "'>"; Masih error
+
+                });
+            });
+        });
+    </script>

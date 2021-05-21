@@ -25,6 +25,7 @@
       "BENET/1.0.0": {
         "dependencies": {
           "EntityFramework": "6.4.4",
+          "Knockout.Mapping": "2.4.0",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.12",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.12",
           "Microsoft.AspNetCore.Identity.UI": "3.1.12",
@@ -32,6 +33,7 @@
           "Microsoft.EntityFrameworkCore.Sqlite": "3.1.13",
           "Microsoft.EntityFrameworkCore.Tools": "3.1.13",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.5",
+          "jQuery": "3.6.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -325,6 +327,13 @@
           "lib/netstandard2.1/EntityFramework.dll": {}
         }
       },
+      "jQuery/3.6.0": {},
+      "Knockout.Mapping/2.4.0": {
+        "dependencies": {
+          "knockoutjs": "2.0.0"
+        }
+      },
+      "knockoutjs/2.0.0": {},
       "Microsoft.AspNetCore.Cryptography.Internal/3.1.12": {
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.Internal.dll": {
@@ -4188,6 +4197,27 @@
       "sha512": "sha512-yj1+/4tci7Panu3jKDHYizxwVm0Jvm7b7m057b5h4u8NUHGCR8WIWirBTw+8EptRffwftIWPBeIRGNKD1ewEMQ==",
       "path": "entityframework/6.4.4",
       "hashPath": "entityframework.6.4.4.nupkg.sha512"
+    },
+    "jQuery/3.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sSzCTDWn15waSMjDrP21jjgG1j1pwISLaKiVCClwU4XGAmuZt+FScLkdyRvh9ppoIxAW/tJtJBYei+3CAwFQ7g==",
+      "path": "jquery/3.6.0",
+      "hashPath": "jquery.3.6.0.nupkg.sha512"
+    },
+    "Knockout.Mapping/2.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vbnl7utmdtveWZXWZLsWeNjmhy31E1ImV3BorzjzMZaZ9DcFn0feydgdGTW9Iv9Z+bQk98Kl/+zFyJ+/xLo3hA==",
+      "path": "knockout.mapping/2.4.0",
+      "hashPath": "knockout.mapping.2.4.0.nupkg.sha512"
+    },
+    "knockoutjs/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hGhvFqFUhuZRU5CsDJqDEPbuVDxpImC5I90KZw6fQI114On9xJozJNj5Bw1ckRudwtvHlP9rvtJCJQriMHCpuw==",
+      "path": "knockoutjs/2.0.0",
+      "hashPath": "knockoutjs.2.0.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Cryptography.Internal/3.1.12": {
       "type": "package",

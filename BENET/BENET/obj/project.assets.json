@@ -24,6 +24,18 @@
           "buildTransitive/netcoreapp3.0/EntityFramework.targets": {}
         }
       },
+      "jQuery/3.6.0": {
+        "type": "package"
+      },
+      "Knockout.Mapping/2.4.0": {
+        "type": "package",
+        "dependencies": {
+          "knockoutjs": "2.0.0"
+        }
+      },
+      "knockoutjs/2.0.0": {
+        "type": "package"
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/3.1.12": {
         "type": "package",
         "compile": {
@@ -3050,6 +3062,55 @@
         "tools/netcoreapp3.0/any/ef6.dll",
         "tools/netcoreapp3.0/any/ef6.pdb",
         "tools/netcoreapp3.0/any/ef6.runtimeconfig.json"
+      ]
+    },
+    "jQuery/3.6.0": {
+      "sha512": "sSzCTDWn15waSMjDrP21jjgG1j1pwISLaKiVCClwU4XGAmuZt+FScLkdyRvh9ppoIxAW/tJtJBYei+3CAwFQ7g==",
+      "type": "package",
+      "path": "jquery/3.6.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Scripts/jquery-3.6.0-vsdoc.js",
+        "Content/Scripts/jquery-3.6.0.js",
+        "Content/Scripts/jquery-3.6.0.min.js",
+        "Content/Scripts/jquery-3.6.0.min.map",
+        "Content/Scripts/jquery-3.6.0.slim.js",
+        "Content/Scripts/jquery-3.6.0.slim.min.js",
+        "Content/Scripts/jquery-3.6.0.slim.min.map",
+        "Tools/common.ps1",
+        "Tools/install.ps1",
+        "Tools/jquery-3.6.0.intellisense.js",
+        "Tools/uninstall.ps1",
+        "jquery.3.6.0.nupkg.sha512",
+        "jquery.nuspec"
+      ]
+    },
+    "Knockout.Mapping/2.4.0": {
+      "sha512": "vbnl7utmdtveWZXWZLsWeNjmhy31E1ImV3BorzjzMZaZ9DcFn0feydgdGTW9Iv9Z+bQk98Kl/+zFyJ+/xLo3hA==",
+      "type": "package",
+      "path": "knockout.mapping/2.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/scripts/knockout.mapping-latest.debug.js",
+        "Content/scripts/knockout.mapping-latest.js",
+        "knockout.mapping.2.4.0.nupkg.sha512",
+        "knockout.mapping.nuspec"
+      ]
+    },
+    "knockoutjs/2.0.0": {
+      "sha512": "hGhvFqFUhuZRU5CsDJqDEPbuVDxpImC5I90KZw6fQI114On9xJozJNj5Bw1ckRudwtvHlP9rvtJCJQriMHCpuw==",
+      "type": "package",
+      "path": "knockoutjs/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Scripts/knockout-2.0.0.debug.js",
+        "Content/Scripts/knockout-2.0.0.js",
+        "knockoutjs.2.0.0.nupkg.sha512",
+        "knockoutjs.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Cryptography.Internal/3.1.12": {
@@ -9581,13 +9642,15 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "EntityFramework >= 6.4.4",
+      "Knockout.Mapping >= 2.4.0",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 3.1.12",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.1.12",
       "Microsoft.AspNetCore.Identity.UI >= 3.1.12",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.13",
       "Microsoft.EntityFrameworkCore.Sqlite >= 3.1.13",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.13",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5",
+      "jQuery >= 3.6.0"
     ]
   },
   "packageFolders": {
@@ -9638,6 +9701,10 @@
             "target": "Package",
             "version": "[6.4.4, )"
           },
+          "Knockout.Mapping": {
+            "target": "Package",
+            "version": "[2.4.0, )"
+          },
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
             "target": "Package",
             "version": "[3.1.12, )"
@@ -9667,6 +9734,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[3.1.5, )"
+          },
+          "jQuery": {
+            "target": "Package",
+            "version": "[3.6.0, )"
           }
         },
         "imports": [

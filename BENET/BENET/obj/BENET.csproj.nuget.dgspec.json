@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[6.4.4, )"
             },
+            "Knockout.Mapping": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.12, )"
@@ -77,6 +81,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.5, )"
+            },
+            "jQuery": {
+              "target": "Package",
+              "version": "[3.6.0, )"
             }
           },
           "imports": [

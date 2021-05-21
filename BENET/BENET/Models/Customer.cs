@@ -9,7 +9,7 @@ namespace BENET.Models
     public class Customer : User
     {
         [Key]
-        public int Id { get; set; }
+        public new int Id { get; set; }
         public string Username { get; set; }
         public string Preferences { get; set; }
 

@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "2m4ETb3xyCehxdaMPji7G4RAplPus2BUEe10L8GvK7sHOxTL4GrMpQGdJP7JYonsfsTdkk2chEfDbSVbCJ2Zlw==",
+  "dgSpecHash": "PXnxBURDTP0vkUR7LxcOE53AfVhmA38aqmEH//h3PRk3PoT3gpIrQKOuw2k/FippigcmrDkQHM4KQJb5eF4RLg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Akbar\\source\\repos\\BENET_Revisi\\BENET\\BENET\\BENET.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Akbar\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
+    "C:\\Users\\Akbar\\.nuget\\packages\\jquery\\3.6.0\\jquery.3.6.0.nupkg.sha512",
+    "C:\\Users\\Akbar\\.nuget\\packages\\knockout.mapping\\2.4.0\\knockout.mapping.2.4.0.nupkg.sha512",
+    "C:\\Users\\Akbar\\.nuget\\packages\\knockoutjs\\2.0.0\\knockoutjs.2.0.0.nupkg.sha512",
     "C:\\Users\\Akbar\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.12\\microsoft.aspnetcore.cryptography.internal.3.1.12.nupkg.sha512",
     "C:\\Users\\Akbar\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.12\\microsoft.aspnetcore.cryptography.keyderivation.3.1.12.nupkg.sha512",
     "C:\\Users\\Akbar\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\3.1.12\\microsoft.aspnetcore.diagnostics.entityframeworkcore.3.1.12.nupkg.sha512",

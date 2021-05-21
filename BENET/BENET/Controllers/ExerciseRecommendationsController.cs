@@ -21,12 +21,13 @@ namespace BENET.Controllers
         }
 
         // GET: ExerciseRecommendations
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string recommendation)
         {
-            return View(await _context.ExerciseRecommendation.ToListAsync());
+            return View(await _context.ExerciseRecommendation.Where(j => j.SportType.Contains(recommendation)).ToListAsync());
         }
 
         // GET: ExerciseRecommendations/ShowSearchForm
+
         public IActionResult ShowSearchForm()
         {
             return View();
