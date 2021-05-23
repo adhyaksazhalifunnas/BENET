@@ -21,10 +21,33 @@ namespace BENET.Controllers
         }
 
         // GET: ExerciseRecommendations
-        public async Task<IActionResult> Index(string recommendation)
+        public async Task<IActionResult> Index(string recommendation, string lat, string lon)
         {
+            if (lat == null || lon == null)
+            {
+                return View(await _context.ExerciseRecommendation.Where(j => j.SportType.Contains(recommendation)).ToListAsync());
+            }
+
+            List<char> lat2 = new List<char>();
+            List<char> lon2 = new List<char>();
+
+            for (int i = 0; i < lat.Length - 5; i++){
+                lat2.Add(lat[i]);
+            }
+            var lat3 = lat2.ToArray();
+            string lat4 = string.Join("", lat3);
+
+            for (int i = 0; i < lon.Length - 5; i++)
+            {
+                lon2.Add(lon[i]);
+            }
+            var lon3 = lat2.ToArray();
+            string lon4 = string.Join("", lon3);
+
+            //return View(await _context.ExerciseRecommendation.Where(j => j.SportType.Contains(recommendation) && j => j.latitude.Contains(lat4) && j => j.longitude.Contains(lon4)).ToListAsync());
             return View(await _context.ExerciseRecommendation.Where(j => j.SportType.Contains(recommendation)).ToListAsync());
         }
+
 
         // GET: ExerciseRecommendations/ShowSearchForm
 

@@ -9,10 +9,18 @@
 <h4 id="prediksi"></h4>
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <form asp-action="Index">
                 <div class="form-group">
-                    <input id="recommendation" name="recommendation" class="form-control" />
+                    <br />
+                    <h3>Posisi</h3>
+                    <h5>Latitude</h5>
+                    <input id="lat" name="lat" class="form-control" disabled />
+                    <h5>Longitude</h5>
+                    <input id="long" name="lon" class="form-control" disabled />
+                    <br />
+                    <h3>Rekomendasi</h3>
+                    <input id="recommendation" name="recommendation" class="form-control" disabled />
                 </div>
                 <div class="form-group">
                     <input value="Lihat Rekomendasi" type="submit" class="btn btn-primary">
@@ -62,9 +70,12 @@
             navigator.geolocation.getCurrentPosition(function (position) {
                 console.log(position.coords.latitude);
                 $.get("https://api.openweathermap.org/data/2.5/weather?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&lang=id&appid=4644fa98c58f8eb00826d23a7b4b6e2d&units=metric", function (response) {
+                    $("#lat").val(position.coords.latitude);
+                    $("#long").val(position.coords.longitude);
+
                     $("#reply").text("Cuaca di daerah " + response.name + " dengan suhu " + response.main.temp + "C dengan cuaca " + response.weather[0]["description"]);
                     console.log(response);
-                    if (response.weather[0]["main"] == "rain") {
+                    if (response.weather[0]["main"] == "Rain") {
                         $("#prediksi").text("Prediksi cuaca hari ini hujan, disarankan memilih olahraga Indoor");
                         $("#recommendation").val("Indoor");
                     }
