@@ -70,8 +70,7 @@
     </tbody>
 </table>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACQg7qCGWJW4hgZSd6upcHm9JRSjXYXS0&callback=initMap&libraries=&v=weekly"
-    async>
+    <script>
         $(document).ready(function () {
             navigator.geolocation.getCurrentPosition(function (position) {
                 console.log(position.coords.latitude);
@@ -95,6 +94,9 @@
             });
         });
     </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACQg7qCGWJW4hgZSd6upcHm9JRSjXYXS0&callback=initMap&libraries=&v=weekly"
+    async></script>    
 
     <script>
         function initMap() {
