@@ -44,6 +44,7 @@ namespace BENET.Controllers
             var lon3 = lat2.ToArray();
             string lon4 = string.Join("", lon3);
 
+            //TODO => Add database more column in database for Latitu and longitude or somehow link another database table for searching places based on lat & long
             //return View(await _context.ExerciseRecommendation.Where(j => j.SportType.Contains(recommendation) && j => j.latitude.Contains(lat4) && j => j.longitude.Contains(lon4)).ToListAsync());
             return View(await _context.ExerciseRecommendation.Where(j => j.SportType.Contains(recommendation)).ToListAsync());
         }

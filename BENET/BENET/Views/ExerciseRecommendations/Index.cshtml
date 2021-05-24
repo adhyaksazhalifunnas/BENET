@@ -4,68 +4,74 @@
     ViewData["Title"] = "Index";
 }
 
+<div id="map" style="height: 400px; width: 100%;"></div>
 <div id="mapholder"></div>
 <h2 id="reply"></h2>
 <h4 id="prediksi"></h4>
 
-    <div class="row">
-        <div class="col-md-6">
-            <form asp-action="Index">
-                <div class="form-group">
-                    <br />
-                    <h3>Posisi</h3>
-                    <h5>Latitude</h5>
-                    <input id="lat" name="lat" class="form-control" disabled />
-                    <h5>Longitude</h5>
-                    <input id="long" name="lon" class="form-control" disabled />
-                    <br />
-                    <h3>Rekomendasi</h3>
-                    <input id="recommendation" name="recommendation" class="form-control" disabled />
-                </div>
-                <div class="form-group">
-                    <input value="Lihat Rekomendasi" type="submit" class="btn btn-primary">
-                </div>
-            </form>
-        </div>
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Index">
+            <div class="form-group">
+                <br />
+                <h3>Posisi</h3>
+                <h5>Latitude</h5>
+                <input id="lat" name="lat" class="form-control" disabled />
+                <h5>Longitude</h5>
+                <input id="long" name="lon" class="form-control" disabled />
+                <br />
+                <h3>Rekomendasi</h3>
+                <input id="recommendation" name="recommendation" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <input value="Lihat Rekomendasi" type="submit" class="btn btn-primary">
+            </div>
+        </form>
     </div>
+</div>
 
-    <p>
+<p>
+    @if (User.Identity.IsAuthenticated)
+    {
         <a asp-action="Create">Create New</a>
-    </p>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.SportName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SportType)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SportDrill)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SportName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SportType)
-                    </td>
-                    <td>
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    }
+</p>
 
-    <script>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SportName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SportType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SportDrill)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SportName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SportType)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACQg7qCGWJW4hgZSd6upcHm9JRSjXYXS0&callback=initMap&libraries=&v=weekly"
+    async>
         $(document).ready(function () {
             navigator.geolocation.getCurrentPosition(function (position) {
                 console.log(position.coords.latitude);
@@ -73,8 +79,9 @@
                     $("#lat").val(position.coords.latitude);
                     $("#long").val(position.coords.longitude);
 
-                    $("#reply").text("Cuaca di daerah " + response.name + " dengan suhu " + response.main.temp + "C dengan cuaca " + response.weather[0]["description"]);
+                    $("#reply").text("Cuaca di daerah " + response.name + " dengan suhu " + response.main.temp + "°C dengan cuaca " + response.weather[0]["description"]);
                     console.log(response);
+
                     if (response.weather[0]["main"] == "Rain") {
                         $("#prediksi").text("Prediksi cuaca hari ini hujan, disarankan memilih olahraga Indoor");
                         $("#recommendation").val("Indoor");
@@ -84,14 +91,25 @@
                         $("#recommendation").val("Outdoor");
                     }
 
-                    //TODO
-                    //Google maps location
-                    var latlon = position.coords.latitude + "," + position.coords.longitude;
-                    var img_url = "https://maps.googleapis.com/maps/api/staticmap?center=" + latlon + "&zoom=14&size=400x300&sensor=false&key=AIzaSyACQg7qCGWJW4hgZSd6upcHm9JRSjXYXS0";
-
-                    //document.getElementById("mapholder").innerHTML = "<img src='" + img_url + "'>"; Masih error
-
                 });
             });
         });
     </script>
+
+    <script>
+        function initMap() {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                const loc = { lat: position.coords.latitude, lng: position.coords.longitude };
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 14,
+                    center: loc,
+                });
+                const marker = new google.maps.Marker({
+                    position: loc,
+                    map: map,
+                });
+            });
+            
+        }
+    </script>
+    
